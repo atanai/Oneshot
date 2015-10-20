@@ -39,4 +39,28 @@ class Utils: NSObject {
         
         return (UIImage(), "")
     }
+    
+    class func getAdjustedYPosition(viewController: UIViewController) -> CGFloat {
+        let viewHeight = viewController.view.frame.width * 1.333;
+        let adjustedYPosition = (viewController.view.frame.height - viewHeight) / 2;
+        
+        return adjustedYPosition
+    }
+    
+    class func createNavigationBar(viewController: UIViewController) -> UINavigationBar {
+        let navBar = UINavigationBar(frame: CGRectMake(0, 0, viewController.view.frame.size.width, Utils.getAdjustedYPosition(viewController)))
+        navBar.barStyle = UIBarStyle.Default
+        navBar.barTintColor = UIColor.blackColor()
+        
+        return navBar
+
+    }
+    
+    class func createToolBar(viewController: UIViewController) -> UIToolbar {
+        let toolBar = UIToolbar(frame: CGRectMake(0, viewController.view.frame.size.height-Utils.getAdjustedYPosition(viewController), viewController.view.frame.size.width, Utils.getAdjustedYPosition(viewController)))
+        toolBar.barStyle =  UIBarStyle.Default
+        toolBar.barTintColor = UIColor.blackColor()
+        
+        return toolBar
+    }
 }

@@ -207,19 +207,11 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func loadToolBar() {
-    
-        let cameraViewHeight = self.view.frame.width * 1.333;
-        let adjustedYPosition = (self.view.frame.height - cameraViewHeight) / 2;
         
-        let navBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width, adjustedYPosition))
-        navBar.barStyle = UIBarStyle.Default
-        navBar.barTintColor = UIColor.blackColor()
-
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height-adjustedYPosition, self.view.frame.size.width, adjustedYPosition))
-        toolBar.barTintColor = UIColor.blackColor()
+        let navBar = Utils.createNavigationBar(self)
+        let toolBar = Utils.createToolBar(self)
+        
         self.previewButton = UIButton(frame: CGRectMake(0, self.view.frame.size.width-45, 45, 45))
-        
-        toolBar.barStyle =  UIBarStyle.Default
         
         self.previewButton?.setImage(self.image, forState: UIControlState.Normal)
         self.previewButton?.addTarget(self, action: "previewImage", forControlEvents: UIControlEvents.TouchDown)

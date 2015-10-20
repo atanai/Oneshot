@@ -32,30 +32,28 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
     }
     
     func loadToolBar() {
-        let cameraViewHeight = self.view.frame.width * 1.333;
-        let adjustedYPosition = (self.view.frame.height - cameraViewHeight) / 2;
         
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height-adjustedYPosition, self.view.frame.size.width, adjustedYPosition))
-        toolBar.barStyle =  UIBarStyle.Default
+        let navBar = Utils.createNavigationBar(self)
+        let toolBar = Utils.createToolBar(self)
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "donePreview")
-        doneButton.tintColor = UIColor.darkGrayColor()
+        doneButton.tintColor = UIColor.whiteColor()
         doneButton.style = UIBarButtonItemStyle.Plain
         
-        let mapButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showMap")
-        mapButton.tintColor = UIColor.darkGrayColor()
+        let mapButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Play, target: self, action: "showMap")
+        mapButton.tintColor = UIColor.whiteColor()
         mapButton.style = UIBarButtonItemStyle.Plain
         
         let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveImage")
-        saveButton.tintColor = UIColor.darkGrayColor()
+        saveButton.tintColor = UIColor.whiteColor()
         saveButton.style = UIBarButtonItemStyle.Plain
         
         let timeTaken = UILabel(frame: CGRectMake((self.view.frame.size.width/2) - 70, 40, 140, 20))
         timeTaken.adjustsFontSizeToFitWidth = true
-        timeTaken.textColor = UIColor.blackColor()
+        timeTaken.textColor = UIColor.whiteColor()
         timeTaken.textAlignment = NSTextAlignment.Natural
         
-        imageView = UIImageView(frame: CGRectMake(0, adjustedYPosition, self.view.frame.size.width, self.view.frame.width * 1.333))
+        imageView = UIImageView(frame: CGRectMake(0, Utils.getAdjustedYPosition(self), self.view.frame.size.width, self.view.frame.width * 1.333))
         
         let imageInfo = Utils.loadImage(CameraViewController.imageName)
         imageView.image = imageInfo.image
@@ -81,6 +79,7 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
         
         self.view.addSubview(uiView)
         self.view.addSubview(imageView)
+        self.view.addSubview(navBar)
         self.view.addSubview(timeTaken)
     }
     

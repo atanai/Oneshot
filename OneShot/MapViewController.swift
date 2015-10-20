@@ -13,5 +13,24 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let cameraViewHeight = self.view.frame.width * 1.333;
+        let adjustedYPosition = (self.view.frame.height - cameraViewHeight) / 2;
+        
+        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height-adjustedYPosition, self.view.frame.size.width, adjustedYPosition))
+        toolBar.barStyle =  UIBarStyle.Default
+        toolBar.barTintColor = UIColor.blackColor()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "donePreview")
+        doneButton.tintColor = UIColor.darkGrayColor()
+        doneButton.style = UIBarButtonItemStyle.Plain
+        
+        let items : NSArray = [
+            doneButton,
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: self, action: nil)]
+        
+        toolBar.setItems((items as! [UIBarButtonItem]), animated: true)
+        
+        self.view.addSubview(toolBar)
     }
 }

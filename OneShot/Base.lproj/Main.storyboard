@@ -25,6 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137" y="275"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="Nni-3a-uTd">
@@ -41,12 +42,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="GCp-Jk-CBV" kind="presentation" id="c8Y-yz-qsi"/>
+                        <segue destination="GCp-Jk-CBV" kind="presentation" identifier="MapView" id="c8Y-yz-qsi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENL-Vr-49K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="230"/>
+            <point key="canvasLocation" x="919" y="463"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="50a-F3-ZLT">
