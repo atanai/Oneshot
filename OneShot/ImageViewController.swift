@@ -36,7 +36,7 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
         let navBar = Utils.createNavigationBar(self)
         let toolBar = Utils.createToolBar(self)
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "donePreview")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: "endPreview")
         doneButton.tintColor = UIColor.whiteColor()
         doneButton.style = UIBarButtonItemStyle.Plain
         
@@ -83,7 +83,7 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
         self.view.addSubview(timeTaken)
     }
     
-    func donePreview() {
+    func endPreview() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

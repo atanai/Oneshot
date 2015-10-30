@@ -21,7 +21,7 @@ class MapViewController: UIViewController {
         toolBar.barStyle =  UIBarStyle.Default
         toolBar.barTintColor = UIColor.blackColor()
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "donePreview")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: "endMap")
         doneButton.tintColor = UIColor.darkGrayColor()
         doneButton.style = UIBarButtonItemStyle.Plain
         
@@ -32,5 +32,10 @@ class MapViewController: UIViewController {
         toolBar.setItems((items as! [UIBarButtonItem]), animated: true)
         
         self.view.addSubview(toolBar)
+    }
+    
+    
+    func endMap() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
