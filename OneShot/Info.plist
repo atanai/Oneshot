@@ -42,6 +42,8 @@
 	<string>Location is required to find out where you are</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Trust me</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

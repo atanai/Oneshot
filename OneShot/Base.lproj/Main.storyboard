@@ -61,17 +61,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Aj-fA-FUd">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Aj-fA-FUd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Aj-fA-FUd" firstAttribute="bottom" secondItem="An8-d1-nlv" secondAttribute="top" id="SPb-q5-L4w"/>
+                            <constraint firstItem="8Aj-fA-FUd" firstAttribute="leading" secondItem="k82-VG-KPP" secondAttribute="leading" id="cS2-rF-Ruv"/>
+                            <constraint firstItem="8Aj-fA-FUd" firstAttribute="top" secondItem="k82-VG-KPP" secondAttribute="top" id="f0M-0p-BeN"/>
+                            <constraint firstAttribute="trailing" secondItem="8Aj-fA-FUd" secondAttribute="trailing" id="xVE-Se-LRX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y2W-rL-CCc">
                         <barButtonItem key="rightBarButtonItem" title="Back" id="lLc-tq-g0D"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="8Aj-fA-FUd" id="SAJ-oz-r0w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSc-9U-KCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

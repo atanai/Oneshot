@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageIO
 
 class Utils: NSObject {
     class func loadImage(fileName: String) -> (image: UIImage, timeTaken: String) {
@@ -26,13 +27,13 @@ class Utils: NSObject {
 
                         let timeString = NSDateFormatter.localizedStringFromDate(imageTaken, dateStyle: NSDateFormatterStyle.MediumStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
                         let image = UIImage(contentsOfFile: imageContent)
-            
+                          
                         if (image != nil) {
                             return (image!, timeString)
                         }
                     }
                 } catch {
-                    fatalError()
+                    return (UIImage(), "")
                 }
             }
         }
@@ -62,5 +63,23 @@ class Utils: NSObject {
         toolBar.barTintColor = UIColor.blackColor()
         
         return toolBar
+    }
+    
+    class func getFileGeolocation(file: String) -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
+        let path = paths.objectAtIndex(0) as! NSString
+        
+        if (path.length > 0) {
+            let content = path.stringByAppendingPathComponent(file)
+            do {
+                let text = try NSString(contentsOfFile: content, encoding: NSUTF8StringEncoding)
+                return text
+            }
+            catch {
+                return "Cannot read file"
+            }
+        }
+        
+        return ""
     }
 }
