@@ -36,13 +36,15 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
         let navBar = Utils.createNavigationBar(self)
         let toolBar = Utils.createToolBar(self)
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: "endPreview")
-        doneButton.tintColor = UIColor.whiteColor()
-        doneButton.style = UIBarButtonItemStyle.Plain
+        let closeButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action: "endPreview")
+        //let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: "endPreview")
+        closeButton.tintColor = UIColor.whiteColor()
+        //doneButton.style = UIBarButtonItemStyle.Plain
         
-        let mapButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Play, target: self, action: "showMap")
+        //let mapButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Play, target: self, action: "showMap")
+        let mapButton = UIBarButtonItem(title: "Map", style: UIBarButtonItemStyle.Plain, target: self, action: "showMap")
         mapButton.tintColor = UIColor.whiteColor()
-        mapButton.style = UIBarButtonItemStyle.Plain
+//        mapButton.style = UIBarButtonItemStyle.Plain
         
         let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveImage")
         saveButton.tintColor = UIColor.whiteColor()
@@ -68,7 +70,7 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
                                 UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil),
                                 mapButton,
                                 UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil),
-                                doneButton,
+                                closeButton,
                                 UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: self, action: nil)]
         
         toolBar.setItems((items as! [UIBarButtonItem]), animated: true)
