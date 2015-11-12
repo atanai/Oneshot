@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate,
                             UIPickerViewDataSource, UIPickerViewDelegate {
@@ -37,18 +38,17 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
         let toolBar = Utils.createToolBar(self)
         
         let closeButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action: "endPreview")
-        //let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: "endPreview")
         closeButton.tintColor = UIColor.whiteColor()
-        //doneButton.style = UIBarButtonItemStyle.Plain
         
-        //let mapButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Play, target: self, action: "showMap")
         let mapButton = UIBarButtonItem(title: "Map", style: UIBarButtonItemStyle.Plain, target: self, action: "showMap")
         mapButton.tintColor = UIColor.whiteColor()
-//        mapButton.style = UIBarButtonItemStyle.Plain
         
-        let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveImage")
+        if (!CLLocationManager.locationServicesEnabled()) {
+            mapButton.enabled = false
+        }
+        
+        let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: "saveImage")
         saveButton.tintColor = UIColor.whiteColor()
-        saveButton.style = UIBarButtonItemStyle.Plain
         
         let timeTaken = UILabel(frame: CGRectMake((self.view.frame.size.width/2) - 70, 40, 140, 20))
         timeTaken.adjustsFontSizeToFitWidth = true

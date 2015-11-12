@@ -40,6 +40,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.delegate = self
         
         let geoStr = Utils.getFileGeolocation(CameraViewController.geoName) as String
+        
         let list = geoStr.componentsSeparatedByString(",")
         
         let location = CLLocationCoordinate2D(

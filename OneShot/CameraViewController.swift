@@ -319,22 +319,25 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func saveGeolocation() {
-        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
-        let path = paths.objectAtIndex(0) as! NSString
         
-        if (path.length > 0) {
-            let geoFile = path.stringByAppendingPathComponent(CameraViewController.geoName)
+        if (CLLocationManager.locationServicesEnabled()) {
+            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
+            let path = paths.objectAtIndex(0) as! NSString
+        
+            if (path.length > 0) {
+                let geoFile = path.stringByAppendingPathComponent(CameraViewController.geoName)
             
-            let latitude = String(format: "%f", (self.locationManager.location?.coordinate.latitude)!)
-            let longtitude = String(format: "%f", (self.locationManager.location?.coordinate.longitude)!)
+                let latitude = String(format: "%f", (self.locationManager.location?.coordinate.latitude)!)
+                let longtitude = String(format: "%f", (self.locationManager.location?.coordinate.longitude)!)
             
-            let geoString = latitude + "," + longtitude
+                let geoString = latitude + "," + longtitude
             
-            do {
-                try geoString.writeToFile(geoFile, atomically: false, encoding: NSUTF8StringEncoding)
-            }
-            catch {
-                print("Cannot write geoFile")
+                do {
+                    try geoString.writeToFile(geoFile, atomically: false, encoding: NSUTF8StringEncoding)
+                }
+                catch {
+                    print("Cannot write geoFile")
+                }
             }
         }
     }

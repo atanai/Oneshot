@@ -76,7 +76,7 @@ class Utils: NSObject {
                 return text
             }
             catch {
-                return "Cannot read file"
+                return ""
             }
         }
         
