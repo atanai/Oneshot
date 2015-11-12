@@ -9,19 +9,13 @@
 import UIKit
 import CoreLocation
 
-class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate,
-                            UIPickerViewDataSource, UIPickerViewDelegate {
+class ImageViewController:  UIViewController, UIGestureRecognizerDelegate {
     
     var imageView: UIImageView!
-    var alarm: NSTimer!
-    var timePicker: UIPickerView!
-    let pickerData = ["Mozzarella","Gorgonzola","Provolone","Brie","Maytag Blue","Sharp Cheddar","Monterrey Jack","Stilton","Gouda","Goat Cheese", "Asiago"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadToolBar()
-        
-        alarm = NSTimer()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -61,10 +55,6 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
         imageView.image = imageInfo.image
         timeTaken.text = imageInfo.timeTaken
         
-        timePicker = UIPickerView()
-        timePicker.dataSource = self
-        timePicker.delegate = self
-        
         let items : NSArray = [ UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: self, action: nil),
                                 saveButton,
                                 UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil),
@@ -77,7 +67,6 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
         
         let uiView = UIView(frame: self.view.bounds)
         uiView.addSubview(toolBar)
-        //uiView.addSubview(timePicker)
         
         self.view.addSubview(uiView)
         self.view.addSubview(imageView)
@@ -98,50 +87,13 @@ class ImageViewController:  UIViewController, UIScrollViewDelegate, UIGestureRec
         self.presentViewController(mapView, animated: true, completion: nil)
     }
     
-    func startTimer() {
-        if (!alarm.valid) {
-            alarm = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "displayAlarm", userInfo: nil, repeats: false)
-        }
-    }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        var pickerLabel = view as! UILabel!
-        if view == nil {  //if no label there yet
-            pickerLabel = UILabel()
-            //color the label's background
-            let hue = CGFloat(row)/CGFloat(pickerData.count)
-            pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
-        }
-        let titleData = pickerData[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 26.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
-        pickerLabel!.attributedText = myTitle
-        pickerLabel!.textAlignment = .Center
-        
-        return pickerLabel
-        
-    }
-    
-    func displayAlarm() {
-        dispatch_async(dispatch_get_main_queue(), {
-            UIAlertView(title: "Wake up", message: "Wake up", delegate: nil, cancelButtonTitle: "Close").show()
-        })
-    }
-    
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo: UnsafePointer<()>) {
-        dispatch_async(dispatch_get_main_queue(), {
-            UIAlertView(title: "Success", message: "This image has been saved to your Camera Roll successfully", delegate: nil, cancelButtonTitle: "Close").show()
-        })
+        let alertController = UIAlertController(title: "Success", message: "This image has been saved to your Camera Roll successfully", preferredStyle: .Alert)
+            
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in }
+        
+        alertController.addAction(OKAction)
+            
+        self.presentViewController(alertController, animated: true, completion:nil)
     }
 }
