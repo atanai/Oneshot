@@ -254,8 +254,6 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
                 if imageDataSampleBuffer != nil {
                     let imageData: NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
                     
-                    //self.setLocation()
-                    
                     self.image = UIImage(data: imageData)!
                     self.previewButton?.setImage(self.image, forState: UIControlState.Normal)
                     self.saveImage(self.image!)
@@ -264,46 +262,6 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
                 }
             }
         )
-    }
-    
-    func setLocation() {
-        var latitude : CLLocationDegrees = (locationManager.location!.coordinate.latitude)
-        
-        var latitudeRef : NSString!
-        if (latitude < 0.0) {
-            latitude *= -1.0
-            latitudeRef = "S"
-        }
-        else {
-            latitudeRef = "N"
-        }
-        
-        var longitude : CLLocationDegrees = (locationManager.location!.coordinate.longitude)
-        
-        var longitudeRef : NSString!
-        if (longitude < 0.0) {
-            longitude *= -1.0
-            longitudeRef = "W"
-        }
-        else {
-            longitudeRef = "E"
-        }
-        
-        let photoMetadata = NSMutableDictionary()
-        let locationMetadata = NSMutableDictionary()
-        
-        if (photoMetadata.objectForKey("kCGImagePropertyGPSDictionary") != nil) {
-            locationMetadata.addEntriesFromDictionary(photoMetadata.objectForKey("kCGImagePropertyGPSDictionary") as! [NSObject : AnyObject]!)
-        }
-        
-        locationMetadata.setObject(latitudeRef, forKey: "kCGImagePropertyGPSLatitudeRef")
-        let lat : NSNumber = latitude
-        locationMetadata.setObject(lat, forKey: "kCGImagePropertyGPSLatitude")
-        locationMetadata.setObject(longitudeRef, forKey: "kCGImagePropertyGPSLongitudeRef")
-        let long : NSNumber = longitude
-        locationMetadata.setObject(long, forKey: "kCGImagePropertyGPSLongitude")
-
-        photoMetadata.setObject(locationMetadata, forKey: "kCGImagePropertyGPSDictionary")
     }
     
     func saveImage(image: UIImage) {
@@ -321,22 +279,27 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     func saveGeolocation() {
         
         if (CLLocationManager.locationServicesEnabled()) {
-            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
-            let path = paths.objectAtIndex(0) as! NSString
+            
+            if ((CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways) ||
+                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse)
+            {
+                let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
+                let path = paths.objectAtIndex(0) as! NSString
         
-            if (path.length > 0) {
-                let geoFile = path.stringByAppendingPathComponent(CameraViewController.geoName)
+                if (path.length > 0) {
+                    let geoFile = path.stringByAppendingPathComponent(CameraViewController.geoName)
             
-                let latitude = String(format: "%f", (self.locationManager.location?.coordinate.latitude)!)
-                let longtitude = String(format: "%f", (self.locationManager.location?.coordinate.longitude)!)
+                    let latitude = String(format: "%f", (self.locationManager.location?.coordinate.latitude)!)
+                    let longtitude = String(format: "%f", (self.locationManager.location?.coordinate.longitude)!)
             
-                let geoString = latitude + "," + longtitude
+                    let geoString = latitude + "," + longtitude
             
-                do {
-                    try geoString.writeToFile(geoFile, atomically: false, encoding: NSUTF8StringEncoding)
-                }
-                catch {
-                    print("Cannot write geoFile")
+                    do {
+                        try geoString.writeToFile(geoFile, atomically: false, encoding: NSUTF8StringEncoding)
+                    }
+                    catch {
+                        print("Cannot write geoFile")
+                    }
                 }
             }
         }
@@ -345,9 +308,5 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     func previewImage() {
         let previewImage = storyboard?.instantiateViewControllerWithIdentifier("ImageView") as! ImageViewController
         self.presentViewController(previewImage, animated: true, completion: nil)
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //let c = locations.last
     }
 }

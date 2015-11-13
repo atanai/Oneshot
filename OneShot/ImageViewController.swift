@@ -37,8 +37,11 @@ class ImageViewController:  UIViewController, UIGestureRecognizerDelegate {
         let mapButton = UIBarButtonItem(title: "Map", style: UIBarButtonItemStyle.Plain, target: self, action: "showMap")
         mapButton.tintColor = UIColor.whiteColor()
         
-        if (!CLLocationManager.locationServicesEnabled()) {
-            mapButton.enabled = false
+        if (CLLocationManager.locationServicesEnabled()) {
+            
+            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied) {
+                    mapButton.enabled = false
+            }
         }
         
         let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: "saveImage")
@@ -88,7 +91,7 @@ class ImageViewController:  UIViewController, UIGestureRecognizerDelegate {
     }
     
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo: UnsafePointer<()>) {
-        let alertController = UIAlertController(title: "Success", message: "This image has been saved to your Camera Roll successfully", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Success", message: "The image has been saved to your Camera Roll", preferredStyle: .Alert)
             
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in }
         
