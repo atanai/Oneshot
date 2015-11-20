@@ -14,7 +14,6 @@
 		F42B19331A7D46A3008503C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42B19311A7D46A3008503C6 /* LaunchScreen.xib */; };
 		F42B193F1A7D46A3008503C6 /* OneShotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B193E1A7D46A3008503C6 /* OneShotTests.swift */; };
 		F42B19491A7D46D3008503C6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B19481A7D46D3008503C6 /* CameraViewController.swift */; };
-		F484A1E11BF4E3930006BF86 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F484A1E01BF4E3930006BF86 /* MapKit.framework */; };
 		F4CEE5A81A7E66BB006118A9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEE5A71A7E66BB006118A9 /* ImageViewController.swift */; };
 		F4CEE5AA1A7E6C57006118A9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEE5A91A7E6C57006118A9 /* Utils.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		F42B193D1A7D46A3008503C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F42B193E1A7D46A3008503C6 /* OneShotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneShotTests.swift; sourceTree = "<group>"; };
 		F42B19481A7D46D3008503C6 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		F484A1E01BF4E3930006BF86 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4CEE5A71A7E66BB006118A9 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		F4CEE5A91A7E6C57006118A9 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F484A1E11BF4E3930006BF86 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +65,6 @@
 		F42B191A1A7D46A2008503C6 = {
 			isa = PBXGroup;
 			children = (
-				F484A1E01BF4E3930006BF86 /* MapKit.framework */,
 				F42B19251A7D46A3008503C6 /* OneShot */,
 				F42B193B1A7D46A3008503C6 /* OneShotTests */,
 				F42B19241A7D46A3008503C6 /* Products */,
@@ -179,7 +175,7 @@
 						DevelopmentTeam = 9SKU7MFJG7;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
