@@ -31,10 +31,10 @@ class ImageViewController:  UIViewController, UIGestureRecognizerDelegate {
         let navBar = Utils.createNavigationBar(self)
         let toolBar = Utils.createToolBar(self)
         
-        let closeButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action: "endPreview")
+        let closeButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ImageViewController.endPreview))
         closeButton.tintColor = UIColor.whiteColor()
         
-        let mapButton = UIBarButtonItem(title: "Map", style: UIBarButtonItemStyle.Plain, target: self, action: "showMap")
+        let mapButton = UIBarButtonItem(title: "Map", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ImageViewController.showMap))
         mapButton.tintColor = UIColor.whiteColor()
         
         if (CLLocationManager.locationServicesEnabled()) {
@@ -44,7 +44,7 @@ class ImageViewController:  UIViewController, UIGestureRecognizerDelegate {
             }
         }
         
-        let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: "saveImage")
+        let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ImageViewController.saveImage))
         saveButton.tintColor = UIColor.whiteColor()
         
         let timeTaken = UILabel(frame: CGRectMake((self.view.frame.size.width/2) - 70, 40, 140, 20))
@@ -82,7 +82,7 @@ class ImageViewController:  UIViewController, UIGestureRecognizerDelegate {
     }
     
     func saveImage() {
-        UIImageWriteToSavedPhotosAlbum(imageView.image!, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+        UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(ImageViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     func showMap() {

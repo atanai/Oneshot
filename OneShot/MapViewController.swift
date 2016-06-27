@@ -24,7 +24,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         toolBar.setBackgroundImage(UIImage(), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         toolBar.setShadowImage(UIImage(), forToolbarPosition: UIBarPosition.Any)
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: "endMap")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: #selector(MapViewController.endMap))
         doneButton.tintColor = UIColor.darkGrayColor()
         doneButton.style = UIBarButtonItemStyle.Plain
         

@@ -55,7 +55,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
             self.loadToolBar()
         }
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(CameraViewController.handlePan(_:)))
         panGesture.maximumNumberOfTouches = 1
         self.view.addGestureRecognizer(panGesture)
         
@@ -215,9 +215,9 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         self.previewButton = UIButton(frame: CGRectMake(0, self.view.frame.size.width-45, 45, 45))
         
         self.previewButton?.setImage(self.image, forState: UIControlState.Normal)
-        self.previewButton?.addTarget(self, action: "previewImage", forControlEvents: UIControlEvents.TouchDown)
+        self.previewButton?.addTarget(self, action: #selector(CameraViewController.previewImage), forControlEvents: UIControlEvents.TouchDown)
         
-        let takeButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "takePhoto")
+        let takeButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: #selector(CameraViewController.takePhoto))
         takeButton.tintColor = UIColor.whiteColor()
         
         let items : NSArray = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil),
