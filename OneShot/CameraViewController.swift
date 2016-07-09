@@ -311,7 +311,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, WCSessi
             data!.writeToFile(imageFile, atomically: true)
             
             // resize image for watch
-            let resizeImage = self.ResizeImage(image, targetSize: CGSizeMake(400.0, 400.0))
+            let resizeImage = self.ResizeImage(image, targetSize: CGSizeMake(400.0, 400.0)) // to fix for both 42 & 33 mm watches
             let convertedImage = UIImagePNGRepresentation(resizeImage)
             
             // send image to watch
@@ -321,7 +321,9 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, WCSessi
             ]
             
             do {
-                try self.session.updateApplicationContext(message)
+                if ((self.session) != nil) {
+                    try self.session.updateApplicationContext(message)
+                }
             } catch {
                 // ignore an error if cannot send to watch
             }

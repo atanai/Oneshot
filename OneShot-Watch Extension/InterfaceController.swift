@@ -50,7 +50,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         let value = applicationContext["image"] as! NSData
         
         dispatch_async(dispatch_get_main_queue()) {
-            //self.image.setImage(UIImage(contentsOfFile: value));
             self.image.setImageData(value);
         }
     }
