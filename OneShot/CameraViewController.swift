@@ -10,9 +10,10 @@ import UIKit
 import AVFoundation
 import ImageIO
 import CoreLocation
+import WatchConnectivity
 
 
-class CameraViewController: UIViewController, CLLocationManagerDelegate {
+class CameraViewController: UIViewController, CLLocationManagerDelegate, WCSessionDelegate {
     class var imageName: String { return "OneShot.jpg" } // snapshot image name
     class var geoName: String { return "Geolocation.txt" }
     
@@ -30,6 +31,8 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     var lastPosition: CGFloat?
     
     let locationManager = CLLocationManager()
+    
+    var session: WCSession!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +68,12 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         //locationManager?.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        
+        if (WCSession.isSupported()) {
+            self.session = WCSession.defaultSession()
+            self.session.delegate = self
+            self.session.activateSession()
+        }
         
     }
     
@@ -264,6 +273,32 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         )
     }
     
+    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        } else {
+            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
     func saveImage(image: UIImage) {
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
         let path = paths.objectAtIndex(0) as! NSString
@@ -271,8 +306,25 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         if (path.length > 0) {
             let imageFile = path.stringByAppendingPathComponent(CameraViewController.imageName)
             let data = UIImageJPEGRepresentation(image, 1.0)
+            
             // keep snapshot file
             data!.writeToFile(imageFile, atomically: true)
+            
+            // resize image for watch
+            let resizeImage = self.ResizeImage(image, targetSize: CGSizeMake(400.0, 400.0))
+            let convertedImage = UIImagePNGRepresentation(resizeImage)
+            
+            // send image to watch
+            let message : [String : AnyObject]
+            message = [
+                "image":convertedImage!
+            ]
+            
+            do {
+                try self.session.updateApplicationContext(message)
+            } catch {
+                // ignore an error if cannot send to watch
+            }
         }
     }
     

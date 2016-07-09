@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05A0CB4B1D21619C00D86701 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0CB4A1D21619C00D86701 /* InterfaceController.swift */; };
-		05A0CB4D1D21619C00D86701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A0CB4C1D21619C00D86701 /* Assets.xcassets */; };
-		05A0CB521D21619C00D86701 /* OneShot WatchKit 1 App.app in Resources */ = {isa = PBXBuildFile; fileRef = 05A0CB511D21619C00D86701 /* OneShot WatchKit 1 App.app */; };
-		05A0CB581D21619D00D86701 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A0CB561D21619D00D86701 /* Interface.storyboard */; };
-		05A0CB5A1D21619D00D86701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A0CB591D21619D00D86701 /* Assets.xcassets */; };
-		05A0CB5E1D21619D00D86701 /* OneShot WatchKit 1 Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 05A0CB481D21619C00D86701 /* OneShot WatchKit 1 Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0580758D1D256EE800BB3AC6 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0580758B1D256EE800BB3AC6 /* Interface.storyboard */; };
+		0580758F1D256EE800BB3AC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0580758E1D256EE800BB3AC6 /* Assets.xcassets */; };
+		058075961D256EE800BB3AC6 /* OneShot-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 058075951D256EE800BB3AC6 /* OneShot-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0580759B1D256EE800BB3AC6 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580759A1D256EE800BB3AC6 /* InterfaceController.swift */; };
+		0580759D1D256EE800BB3AC6 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580759C1D256EE800BB3AC6 /* ExtensionDelegate.swift */; };
+		0580759F1D256EE800BB3AC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0580759E1D256EE800BB3AC6 /* Assets.xcassets */; };
+		058075A31D256EE800BB3AC6 /* OneShot-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 058075891D256EE800BB3AC6 /* OneShot-Watch.app */; };
 		F403C1571BCAB72D00687887 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403C1561BCAB72D00687887 /* MapViewController.swift */; };
 		F42B19291A7D46A3008503C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B19281A7D46A3008503C6 /* AppDelegate.swift */; };
 		F42B192E1A7D46A3008503C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42B192C1A7D46A3008503C6 /* Main.storyboard */; };
@@ -25,19 +26,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		05A0CB531D21619C00D86701 /* PBXContainerItemProxy */ = {
+		058075971D256EE800BB3AC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F42B191B1A7D46A3008503C6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 05A0CB501D21619C00D86701;
-			remoteInfo = "OneShot WatchKit 1 App";
+			remoteGlobalIDString = 058075941D256EE800BB3AC6;
+			remoteInfo = "OneShot-Watch Extension";
 		};
-		05A0CB5C1D21619D00D86701 /* PBXContainerItemProxy */ = {
+		058075A11D256EE800BB3AC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F42B191B1A7D46A3008503C6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 05A0CB471D21619C00D86701;
-			remoteInfo = "OneShot WatchKit 1 Extension";
+			remoteGlobalIDString = 058075881D256EE800BB3AC6;
+			remoteInfo = "OneShot-Watch";
 		};
 		F42B19391A7D46A3008503C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -49,28 +50,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		05A0CB651D21619D00D86701 /* Embed App Extensions */ = {
+		058075A71D256EE800BB3AC6 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				05A0CB5E1D21619D00D86701 /* OneShot WatchKit 1 Extension.appex in Embed App Extensions */,
+				058075961D256EE800BB3AC6 /* OneShot-Watch Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		058075AB1D256EE800BB3AC6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				058075A31D256EE800BB3AC6 /* OneShot-Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05A0CB481D21619C00D86701 /* OneShot WatchKit 1 Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OneShot WatchKit 1 Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		05A0CB4A1D21619C00D86701 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		05A0CB4C1D21619C00D86701 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		05A0CB4E1D21619C00D86701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05A0CB511D21619C00D86701 /* OneShot WatchKit 1 App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneShot WatchKit 1 App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		05A0CB571D21619D00D86701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		05A0CB591D21619D00D86701 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		05A0CB5B1D21619D00D86701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		058075891D256EE800BB3AC6 /* OneShot-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneShot-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0580758C1D256EE800BB3AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		0580758E1D256EE800BB3AC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		058075901D256EE800BB3AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		058075951D256EE800BB3AC6 /* OneShot-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OneShot-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0580759A1D256EE800BB3AC6 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		0580759C1D256EE800BB3AC6 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		0580759E1D256EE800BB3AC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		058075A01D256EE800BB3AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F403C1561BCAB72D00687887 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F42B19231A7D46A3008503C6 /* OneShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42B19271A7D46A3008503C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,7 +100,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		05A0CB451D21619C00D86701 /* Frameworks */ = {
+		058075921D256EE800BB3AC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -111,24 +124,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05A0CB491D21619C00D86701 /* OneShot WatchKit 1 Extension */ = {
+		0580758A1D256EE800BB3AC6 /* OneShot-Watch */ = {
 			isa = PBXGroup;
 			children = (
-				05A0CB4A1D21619C00D86701 /* InterfaceController.swift */,
-				05A0CB4C1D21619C00D86701 /* Assets.xcassets */,
-				05A0CB4E1D21619C00D86701 /* Info.plist */,
+				0580758B1D256EE800BB3AC6 /* Interface.storyboard */,
+				0580758E1D256EE800BB3AC6 /* Assets.xcassets */,
+				058075901D256EE800BB3AC6 /* Info.plist */,
 			);
-			path = "OneShot WatchKit 1 Extension";
+			path = "OneShot-Watch";
 			sourceTree = "<group>";
 		};
-		05A0CB551D21619C00D86701 /* OneShot WatchKit 1 App */ = {
+		058075991D256EE800BB3AC6 /* OneShot-Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				05A0CB561D21619D00D86701 /* Interface.storyboard */,
-				05A0CB591D21619D00D86701 /* Assets.xcassets */,
-				05A0CB5B1D21619D00D86701 /* Info.plist */,
+				0580759A1D256EE800BB3AC6 /* InterfaceController.swift */,
+				0580759C1D256EE800BB3AC6 /* ExtensionDelegate.swift */,
+				0580759E1D256EE800BB3AC6 /* Assets.xcassets */,
+				058075A01D256EE800BB3AC6 /* Info.plist */,
 			);
-			path = "OneShot WatchKit 1 App";
+			path = "OneShot-Watch Extension";
 			sourceTree = "<group>";
 		};
 		F42B191A1A7D46A2008503C6 = {
@@ -136,8 +150,8 @@
 			children = (
 				F42B19251A7D46A3008503C6 /* OneShot */,
 				F42B193B1A7D46A3008503C6 /* OneShotTests */,
-				05A0CB491D21619C00D86701 /* OneShot WatchKit 1 Extension */,
-				05A0CB551D21619C00D86701 /* OneShot WatchKit 1 App */,
+				0580758A1D256EE800BB3AC6 /* OneShot-Watch */,
+				058075991D256EE800BB3AC6 /* OneShot-Watch Extension */,
 				F42B19241A7D46A3008503C6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,8 +161,8 @@
 			children = (
 				F42B19231A7D46A3008503C6 /* OneShot.app */,
 				F42B19381A7D46A3008503C6 /* OneShotTests.xctest */,
-				05A0CB481D21619C00D86701 /* OneShot WatchKit 1 Extension.appex */,
-				05A0CB511D21619C00D86701 /* OneShot WatchKit 1 App.app */,
+				058075891D256EE800BB3AC6 /* OneShot-Watch.app */,
+				058075951D256EE800BB3AC6 /* OneShot-Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,38 +211,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05A0CB471D21619C00D86701 /* OneShot WatchKit 1 Extension */ = {
+		058075881D256EE800BB3AC6 /* OneShot-Watch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05A0CB641D21619D00D86701 /* Build configuration list for PBXNativeTarget "OneShot WatchKit 1 Extension" */;
+			buildConfigurationList = 058075A81D256EE800BB3AC6 /* Build configuration list for PBXNativeTarget "OneShot-Watch" */;
 			buildPhases = (
-				05A0CB441D21619C00D86701 /* Sources */,
-				05A0CB451D21619C00D86701 /* Frameworks */,
-				05A0CB461D21619C00D86701 /* Resources */,
+				058075871D256EE800BB3AC6 /* Resources */,
+				058075A71D256EE800BB3AC6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				05A0CB541D21619C00D86701 /* PBXTargetDependency */,
+				058075981D256EE800BB3AC6 /* PBXTargetDependency */,
 			);
-			name = "OneShot WatchKit 1 Extension";
-			productName = "OneShot WatchKit 1 Extension";
-			productReference = 05A0CB481D21619C00D86701 /* OneShot WatchKit 1 Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
+			name = "OneShot-Watch";
+			productName = "OneShot-Watch";
+			productReference = 058075891D256EE800BB3AC6 /* OneShot-Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
 		};
-		05A0CB501D21619C00D86701 /* OneShot WatchKit 1 App */ = {
+		058075941D256EE800BB3AC6 /* OneShot-Watch Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05A0CB631D21619D00D86701 /* Build configuration list for PBXNativeTarget "OneShot WatchKit 1 App" */;
+			buildConfigurationList = 058075A41D256EE800BB3AC6 /* Build configuration list for PBXNativeTarget "OneShot-Watch Extension" */;
 			buildPhases = (
-				05A0CB4F1D21619C00D86701 /* Resources */,
+				058075911D256EE800BB3AC6 /* Sources */,
+				058075921D256EE800BB3AC6 /* Frameworks */,
+				058075931D256EE800BB3AC6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "OneShot WatchKit 1 App";
-			productName = "OneShot WatchKit 1 App";
-			productReference = 05A0CB511D21619C00D86701 /* OneShot WatchKit 1 App.app */;
-			productType = "com.apple.product-type.application.watchapp";
+			name = "OneShot-Watch Extension";
+			productName = "OneShot-Watch Extension";
+			productReference = 058075951D256EE800BB3AC6 /* OneShot-Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		F42B19221A7D46A3008503C6 /* OneShot */ = {
 			isa = PBXNativeTarget;
@@ -237,12 +252,12 @@
 				F42B191F1A7D46A3008503C6 /* Sources */,
 				F42B19201A7D46A3008503C6 /* Frameworks */,
 				F42B19211A7D46A3008503C6 /* Resources */,
-				05A0CB651D21619D00D86701 /* Embed App Extensions */,
+				058075AB1D256EE800BB3AC6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				05A0CB5D1D21619D00D86701 /* PBXTargetDependency */,
+				058075A21D256EE800BB3AC6 /* PBXTargetDependency */,
 			);
 			name = OneShot;
 			productName = OneShot;
@@ -278,12 +293,13 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Atanai Wuttisetpaiboon";
 				TargetAttributes = {
-					05A0CB471D21619C00D86701 = {
+					058075881D256EE800BB3AC6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 9SKU7MFJG7;
 					};
-					05A0CB501D21619C00D86701 = {
+					058075941D256EE800BB3AC6 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9SKU7MFJG7;
 					};
 					F42B19221A7D46A3008503C6 = {
 						CreatedOnToolsVersion = 6.2;
@@ -315,28 +331,27 @@
 			targets = (
 				F42B19221A7D46A3008503C6 /* OneShot */,
 				F42B19371A7D46A3008503C6 /* OneShotTests */,
-				05A0CB471D21619C00D86701 /* OneShot WatchKit 1 Extension */,
-				05A0CB501D21619C00D86701 /* OneShot WatchKit 1 App */,
+				058075881D256EE800BB3AC6 /* OneShot-Watch */,
+				058075941D256EE800BB3AC6 /* OneShot-Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		05A0CB461D21619C00D86701 /* Resources */ = {
+		058075871D256EE800BB3AC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A0CB521D21619C00D86701 /* OneShot WatchKit 1 App.app in Resources */,
-				05A0CB4D1D21619C00D86701 /* Assets.xcassets in Resources */,
+				0580758F1D256EE800BB3AC6 /* Assets.xcassets in Resources */,
+				0580758D1D256EE800BB3AC6 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		05A0CB4F1D21619C00D86701 /* Resources */ = {
+		058075931D256EE800BB3AC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A0CB5A1D21619D00D86701 /* Assets.xcassets in Resources */,
-				05A0CB581D21619D00D86701 /* Interface.storyboard in Resources */,
+				0580759F1D256EE800BB3AC6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,11 +375,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		05A0CB441D21619C00D86701 /* Sources */ = {
+		058075911D256EE800BB3AC6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A0CB4B1D21619C00D86701 /* InterfaceController.swift in Sources */,
+				0580759D1D256EE800BB3AC6 /* ExtensionDelegate.swift in Sources */,
+				0580759B1D256EE800BB3AC6 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,15 +407,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		05A0CB541D21619C00D86701 /* PBXTargetDependency */ = {
+		058075981D256EE800BB3AC6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 05A0CB501D21619C00D86701 /* OneShot WatchKit 1 App */;
-			targetProxy = 05A0CB531D21619C00D86701 /* PBXContainerItemProxy */;
+			target = 058075941D256EE800BB3AC6 /* OneShot-Watch Extension */;
+			targetProxy = 058075971D256EE800BB3AC6 /* PBXContainerItemProxy */;
 		};
-		05A0CB5D1D21619D00D86701 /* PBXTargetDependency */ = {
+		058075A21D256EE800BB3AC6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 05A0CB471D21619C00D86701 /* OneShot WatchKit 1 Extension */;
-			targetProxy = 05A0CB5C1D21619D00D86701 /* PBXContainerItemProxy */;
+			target = 058075881D256EE800BB3AC6 /* OneShot-Watch */;
+			targetProxy = 058075A11D256EE800BB3AC6 /* PBXContainerItemProxy */;
 		};
 		F42B193A1A7D46A3008503C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -409,10 +425,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		05A0CB561D21619D00D86701 /* Interface.storyboard */ = {
+		0580758B1D256EE800BB3AC6 /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				05A0CB571D21619D00D86701 /* Base */,
+				0580758C1D256EE800BB3AC6 /* Base */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -436,73 +452,85 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		05A0CB5F1D21619D00D86701 /* Debug */ = {
+		058075A51D256EE800BB3AC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "OneShot WatchKit 1 Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				INFOPLIST_FILE = "OneShot-Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Atanai.OneShot.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Atanai.OneShot.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
 		};
-		05A0CB601D21619D00D86701 /* Release */ = {
+		058075A61D256EE800BB3AC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "OneShot WatchKit 1 Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				INFOPLIST_FILE = "OneShot-Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Atanai.OneShot.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Atanai.OneShot.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
-		05A0CB611D21619D00D86701 /* Debug */ = {
+		058075A91D256EE800BB3AC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = OneShot_WatchKit_1_Extension;
-				INFOPLIST_FILE = "OneShot WatchKit 1 App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IBSC_MODULE = OneShot_Watch_Extension;
+				INFOPLIST_FILE = "OneShot-Watch/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = Atanai.OneShot.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
 		};
-		05A0CB621D21619D00D86701 /* Release */ = {
+		058075AA1D256EE800BB3AC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = OneShot_WatchKit_1_Extension;
-				INFOPLIST_FILE = "OneShot WatchKit 1 App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IBSC_MODULE = OneShot_Watch_Extension;
+				INFOPLIST_FILE = "OneShot-Watch/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = Atanai.OneShot.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -590,9 +618,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = OneShot/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Atanai.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -607,9 +634,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = OneShot/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Atanai.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -657,21 +683,23 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05A0CB631D21619D00D86701 /* Build configuration list for PBXNativeTarget "OneShot WatchKit 1 App" */ = {
+		058075A41D256EE800BB3AC6 /* Build configuration list for PBXNativeTarget "OneShot-Watch Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05A0CB611D21619D00D86701 /* Debug */,
-				05A0CB621D21619D00D86701 /* Release */,
+				058075A51D256EE800BB3AC6 /* Debug */,
+				058075A61D256EE800BB3AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		05A0CB641D21619D00D86701 /* Build configuration list for PBXNativeTarget "OneShot WatchKit 1 Extension" */ = {
+		058075A81D256EE800BB3AC6 /* Build configuration list for PBXNativeTarget "OneShot-Watch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05A0CB5F1D21619D00D86701 /* Debug */,
-				05A0CB601D21619D00D86701 /* Release */,
+				058075A91D256EE800BB3AC6 /* Debug */,
+				058075AA1D256EE800BB3AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F42B191E1A7D46A3008503C6 /* Build configuration list for PBXProject "OneShot" */ = {
 			isa = XCConfigurationList;
