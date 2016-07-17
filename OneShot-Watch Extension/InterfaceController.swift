@@ -16,7 +16,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet var image: WKInterfaceImage!
     
     var session: WCSession! = nil
-    var data: NSData! = nil
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -27,31 +26,27 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             self.session.delegate = self
             self.session.activateSession()
         }
-    }
-
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
         
         // load image from local storage
         self.image.setImage(self.loadImage())
     }
 
+    override func willActivate() {
+        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
+    }
+
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-        
-        // save image to local storage
-        self.saveImage(self.data)
-        
     }
     
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         let value = applicationContext["image"] as! NSData
         
         dispatch_async(dispatch_get_main_queue()) {
-            self.image.setImageData(value);
-            self.data = value;
+            self.image.setImageData(value)
+            self.saveImage(value)
         }
     }
     
