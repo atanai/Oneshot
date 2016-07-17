@@ -28,7 +28,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         }
         
         // load image from local storage
-        self.image.setImage(self.loadImage())
+        self.loadImage()
     }
 
     override func willActivate() {
@@ -61,7 +61,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         }
     }
     
-    func loadImage() -> UIImage {
+    func loadImage() {
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
         let path = paths.objectAtIndex(0) as! NSString
         
@@ -69,10 +69,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             let imageContent = path.stringByAppendingPathComponent("OneShot.jpg")
             
             if (imageContent != "") {
-                return UIImage(contentsOfFile: imageContent)!
+                //return UIImage(contentsOfFile: imageContent)!
+                self.image.setImage(UIImage(contentsOfFile: imageContent))
             }
         }
-        
-        return UIImage()
     }
 }
